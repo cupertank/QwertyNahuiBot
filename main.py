@@ -10,7 +10,7 @@ my_sticker_set = None
 def qwerty_handler(bot: Bot, update: Update):
     global my_sticker_set
 
-    numStick = randint(0, 5)
+    numStick = randint(0, 3)
     bot.send_sticker(update.message.chat_id, my_sticker_set.stickers[numStick], reply_to_message_id=update.message.message_id)
 
 
@@ -20,7 +20,7 @@ dispatcher = updater.dispatcher
 bot = updater.bot
 
 handlers = [
-    MessageHandler(Filters.user(username='cupertank'), qwerty_handler)
+    MessageHandler(Filters.user(username='memsofanime'), qwerty_handler)
 ]
 
 for handler in handlers:
