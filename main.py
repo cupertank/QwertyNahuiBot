@@ -10,8 +10,13 @@ my_sticker_set = None
 def qwerty_handler(bot: Bot, update: Update):
     global my_sticker_set
 
-    numStick = randint(0, 3)
+    log = open('qwerty.log', 'a', encoding='utf-8')
+    log.write(f'Кверти написал: {update.message.text} \n')
+
+    numStick = randint(0, 5)
+    log.write(f'Я ответил стиком: {numStick}\n\n')
     bot.send_sticker(update.message.chat_id, my_sticker_set.stickers[numStick], reply_to_message_id=update.message.message_id)
+    log.close()
 
 
 token = os.environ.get("token")
