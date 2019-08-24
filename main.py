@@ -20,7 +20,7 @@ dispatcher = updater.dispatcher
 bot = updater.bot
 
 handlers = [
-    MessageHandler(Filters.user(username='memsofanime'), qwerty_handler)
+    MessageHandler(Filters.user(username='cupertank'), qwerty_handler)
 ]
 
 for handler in handlers:
