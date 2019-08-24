@@ -1,8 +1,13 @@
 from telegram import Bot, Update, Sticker
-from telegram.ext import Updater, MessageHandler
+from telegram.ext import Updater, MessageHandler, CommandHandler
 from telegram.ext import Filters
 from random import randint
 import os
+
+
+def log_handler(bot: Bot, update: Update):
+    bot.send_document(update.message.chat_id, document=open('./qwerty.log', 'rb')
+)
 
 
 def qwerty_handler(bot: Bot, update: Update):
@@ -23,7 +28,8 @@ dispatcher = updater.dispatcher
 bot = updater.bot
 
 handlers = [
-    MessageHandler(Filters.user(username='memsofanime'), qwerty_handler)
+    MessageHandler(Filters.user(username='memsofanime'), qwerty_handler),
+    CommandHandler('download_log', log_handler)
 ]
 
 for handler in handlers:
