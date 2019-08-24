@@ -4,8 +4,6 @@ from telegram.ext import Filters
 from random import randint
 import os
 
-my_sticker_set = None
-
 
 def qwerty_handler(bot: Bot, update: Update):
     global my_sticker_set
